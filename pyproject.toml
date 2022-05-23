@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "ilitili"
-version = "0.3.4"
+name = "hexlet-code"
+version = "0.0.1"
 description = "Show diff between two files"
 authors = ["ilitili <momcoveylebozo@gmail.com>"]
 license = "MIT"
