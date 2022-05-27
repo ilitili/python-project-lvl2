@@ -15,7 +15,7 @@ def read_file(file_name):
         return parser(file_data, file_type)
 
 
-def generate_diff(first_file, second_file, output_format):
+def generate_diff(first_file, second_file, output_format = 'plain'):
     """Generate diff."""
     if not output_format:
         output_format = 'plain'
