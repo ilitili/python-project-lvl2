@@ -3,8 +3,7 @@ from os.path import splitext
 from gendiff.diff_builder import build_diff
 from gendiff.formatters.formatter import STYLISH, get_formatter
 from gendiff.loaders import get_loader
-from parser import parse
-import requests
+
 
 def read_file(filepath):
     with open(filepath) as file:
@@ -15,8 +14,6 @@ def get_data(filepath):
     _, ext = splitext(filepath)
     load = get_loader(ext[1:].lower())
     if load:
-        data = requests.get(filepath).text
-        parsed_json = parse(data, 'json')
         data = read_file(filepath)
         return load(data)
     raise ValueError
