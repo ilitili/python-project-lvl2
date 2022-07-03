@@ -1,7 +1,5 @@
 from os.path import splitext
 
-from gendiff.parsers import parse_json
-from gendiff.parsers import parse_yaml
 from gendiff.diff_builder import build_diff
 from gendiff.formatters.formatter import STYLISH, get_formatter
 from gendiff.loaders import get_loader
@@ -22,17 +20,8 @@ def get_data(filepath):
 
 
 def generate_diff(first_file, second_file, style=STYLISH):
-    file1_extension = splitext(filepath1)[1]
-
-    if file1_extension == '.json':
-        file1 = parse_json(first_file)
-        file2 = parse_json(second_file)
-    else:
-        file1 = parse_yaml(first_file)
-        file2 = parse_yaml(second_file)
-        
-    first_dict = get_data(file1)
-    second_dict = get_data(file2)
+    first_dict = get_data(first_file)
+    second_dict = get_data(second_file)
 
     diff = build_diff(first_dict, second_dict)
     formatter = get_formatter(style)
