@@ -22,7 +22,7 @@ def get_data(filepath):
 
 
 def generate_diff(first_file, second_file, style=STYLISH):
-    file1_extension = os.path.splitext(filepath1)[1]
+    file1_extension = splitext(filepath1)[1]
 
     if file1_extension == '.json':
         file1 = parse_json(first_file)
